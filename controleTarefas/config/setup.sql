@@ -1,0 +1,5 @@
+CREATE TABLE tbtarefa (
+    id SERIAL PRIMARY KEY,
+    descricao VARCHAR(255) NOT NULL,
+    status BOOLEAN DEFAULT FALSE
+);
