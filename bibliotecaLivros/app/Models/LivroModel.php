@@ -1,8 +1,9 @@
 <?php
 
-    namespace Models\LivroModel;
-    use config\DataBase;
+    namespace App\Models;
+    require_once __DIR__ . '/../../config/DataBase.php';
 
+    use Config\DataBase\DataBase;
     class LivroModel{
 
         public function obterLivrosBD(){
@@ -20,18 +21,6 @@
 
             return $aData;
 
-        }
-
-        public function buscarPorIdDB($id){
-            $oConexao = DataBase::obterConexao();
-
-            $sSelect = "SELECT *
-                         FROM TBLIVROS
-                        WHERE ID = $1";
-            
-            $oResultado = pg_query_params($oConexao,$sSelect,[$id]);
-
-            return pg_fetch_assoc($oResultado);
         }
 
         public function cadastrarLivroDB($titulo,$autor,$isbn){

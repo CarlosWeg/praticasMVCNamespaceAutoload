@@ -11,11 +11,11 @@
         private static $sDataBaseName = 'biblioteca_livros';
 
         public static function conectar(){
-            $sConexao = "host = $this->sHost
-                         port = $this->sPort
-                         user = $this->sUser
-                         password = $this->sPassword
-                         dbname = $this->sDataBaseName";
+            $sConexao = 'host=' . self::$sHost . ' ' . 
+                         'port=' . self::$sPort . ' ' . 
+                         'user=' . self::$sUser . ' ' . 
+                         'password=' . self::$sPassword . ' ' . 
+                         'dbname=' . self::$sDataBaseName;
 
             return pg_connect($sConexao);
         }

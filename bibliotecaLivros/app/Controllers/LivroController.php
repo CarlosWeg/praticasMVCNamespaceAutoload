@@ -12,18 +12,9 @@
             require_once __DIR__ . '/../Views/livros/listar.php';
         }
 
-        public function buscarPorId(){
-            if ($_SERVER['REQUEST_METHOD'] === 'POST'){
-                $id = $_POST['id_busca'];
-                $this->oLivroModel = new LivroModel();
-                $this->oLivroModel->buscarPorIdDB($id);
-                header('Location: /livros');
-                exit;
-            }
-        }
-
         public function cadastrarLivro(){
             if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+
                 $sTitulo = $_POST['titulo_cadastro'];
                 $sAutor = $_POST['autor_cadastro'];
                 $sIsbn = $_POST['isbn_cadastro'];
@@ -32,17 +23,21 @@
                 $this->oLivroModel->cadastrarLivroDB($sTitulo,$sAutor,$sIsbn);
                 header('Location: /livros');
                 exit;
+            } else {
+                require_once __DIR__ . '/../Views/livros/cadastrar.php';
             }
         }
 
         public function atualizarDisponivel(){
-            if ($_SERVER['REQUEST_METHOD'] === 'POST'){
-                $id = $_POST['id_disponivel'];
+            if (isset($_GET['id_disponivel'])){
+                $id = $_GET['id_disponivel'];
 
                 $this->oLivroModel = new LivroModel();
                 $this->oLivroModel->atualziarDisponivel($id);
                 header('Location: /livros');
                 exit;
+            } else {
+                require_once __DIR__ . '/..Views/livros/atualizar.php';
             }
         }
 
