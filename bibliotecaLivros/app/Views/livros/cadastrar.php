@@ -3,6 +3,7 @@
 <head>
     <meta charset = "UTF-8">
     <title>Cadastrar Livro</title>
+    <link rel = "stylesheet" href = "styles.css">
 </head>
 
 <body>
@@ -28,10 +29,8 @@
 
     </fieldset>
 
-    <a href = "/livros/lista">Verificar livros</a>
+    <a href="pagina_livro.php?acao=listar">LISTAR</a>
 
 </body>
-
-
 
 </html>

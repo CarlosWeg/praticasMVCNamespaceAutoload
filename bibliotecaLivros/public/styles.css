@@ -1,0 +1,6 @@
+th,tr,td{
+    padding: 20px;
+    border: 1px solid grey;
+    justify-content: center;
+    align-items: center;
+}

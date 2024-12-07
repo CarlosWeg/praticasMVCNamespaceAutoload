@@ -2,13 +2,13 @@
 <html lang = "pt-BR">
 <head>
     <meta charset = "UTF-8">
-    <title>Listas Livros</title>
-
+    <title>Listar Livros</title>
+    <link rel = "stylesheet" href = "styles.css">
 </head>
 
 <body>
 
-    <h1>Listagem de livros:<h1>
+    <h1>Listagem de livros:</h1>
 
     <table>
 
@@ -31,8 +31,8 @@
                 echo '<td>' . $livro['titulo'] . '</td>';
                 echo '<td>' . $livro['autor'] . '</td>';
                 echo '<td>' . $livro['isbn'] . '</td>';
-                echo '<td>' . $livro['disponivel'] . '</td>';
-                echo '<td><a href = "index.php?id_disponivel=' . $livro['id'] . '">Alterar disponibilidade</a></td>';
+                echo '<td>' . ($livro['disponivel'] =='t'? 'Disponível' : 'Emprestado') . '</td>';
+                echo '<td><a href="pagina_livro.php?acao=empresta&id_disponivel=' . $livro['id'] . '">Alterar disponibilidade</a></td>';
                 echo '</tr>';
             }
 
@@ -40,7 +40,7 @@
 
     </table>
 
-    <a href = "livros/cadastrar">Novo Livro</a>
+    <a href="pagina_livro.php?acao=cadastrar">CADASTRAR</a>
 
 
 </body>
