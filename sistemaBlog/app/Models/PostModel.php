@@ -27,14 +27,14 @@ class PostModel{
         return $aData;
     }
 
-    public function criarPostBD($sTitulo,$sConteudo,$id){
+    public function criarPostBD($sTitulo,$sConteudo,$iIdCategoria){
         $oConexao = DataBase::conectarBD();
 
         $sInsert = "INSERT INTO TBPOSTS
                            (TITULO,CONTEUDO,CATEGORIA_ID)
                            VALUES($1,$2,$3)";
         
-        pg_query_params($oConexao,$sInsert,[$id]);
+        pg_query_params($oConexao,$sInsert,[$iIdCategoria]);
     }
 
     public function atualizarStatusPostBD($id){
